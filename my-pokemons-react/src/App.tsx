@@ -23,6 +23,7 @@ function App() {
       <ThemeProvider theme={theme ==='dark' ? darkTheme : lightTheme}>
         <Styles.Container>
           <Modal isOpen={isOpen} toggle={toggle} >
+            <h1>Olá, este é um Sobre Mim</h1>
           </Modal>
           <Logo />
           <main>

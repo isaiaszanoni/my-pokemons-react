@@ -21,15 +21,37 @@ function usePokemon() {
   async function getPokemon() {
     const min = 0
     const max = 151
+    // const generations
     const randomPokemonNumber = Math.floor(Math.random() * (max - 0 + 1) + min)
     const randomPokemon = await getRandomPokemon(randomPokemonNumber.toString())
     setPokemon(randomPokemon)
   }
 
   function whoIsThatPokemon(guess: string): boolean{
-    const guessIsCorrect = guess === pokemon?.name || guess === pokemon?.number.toString() ? true : false
+    let guessIsCorrect = false
+    guess = guess.toLocaleLowerCase()
+
+    if (pokemon?.name.includes('nidoran')) {
+      guessIsCorrect = true
+    }
+    guessIsCorrect = guess === pokemon?.name.toLocaleLowerCase() || guess === pokemon?.number.toString() 
+    ? true
+    : false
+    
     console.log(`guess: ${guess}. Pokemon: ${pokemon?.name}. Correct: ${guessIsCorrect}`)
     return guessIsCorrect
+  }
+
+  function getPokemonNames() {
+    // get all pokemons
+    // salva os resultados em um estado aqui dentro do meu usePokemon
+
+    // desafio
+    // implemente o input com os complementos
+
+    // Complementos:
+    // existem libs que facilitam isso. 
+    // tente fazer na mão, se der ruim, procura uma lib
   }
 
   function restartGame() {
